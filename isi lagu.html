@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Playlist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('/mnt/data/u-4t_rNK0iFTtqsWL-0_W.jpg') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        h2 {
+            color: #333;
+        }
+        .song {
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>My Music Playlist</h2>
+        <div class="song">
+            <p><strong>KISINAN 2 - MASDDDHO</strong></p>
+            <audio id="audio1" src="KISINAN 2 - MASDDDHO (OFFICIAL MUSIC VIDEO).mp3" controls></audio>
+        </div>
+        <div class="song">
+            <p><strong>DJ PUDAR ROSSA JEDAG JEDUG REMIX [PLAT JMK] BY MASKHAT</strong></p>
+            <audio id="audio2" src="DJ PUDAR ROSSA JEDAG JEDUG REMIX [PLAT JMK] BY MASKHAT.mp3" controls></audio>
+        </div>
+        <div class="song">
+            <p><strong>Marian & Sean - TRACK 7</strong></p>
+            <audio id="audio3" src="Marian & Sean - TRACK 7 (Official Audio).mp3" controls></audio>
+        </div>
+        <div class="song">
+            <p><strong>Devin Riggins - Currents ft. Jaime Deraz</strong></p>
+            <audio id="audio4" src="Devin Riggins - Currents ft. Jaime Deraz (LOSTWIND Remix).mp3" controls></audio>
+        </div>
+        <div class="song">
+            <p><strong>キャットラビング _ 香椎モイミ feat. 可不-mc</strong></p>
+            <audio id="audio5" src="キャットラビング _ 香椎モイミ feat. 可不-mc.mp3" controls></audio>
+        </div>
+        <div class="song">
+            <p><strong>CHASHKAKEFIRA DJ PXRPLE – KOKIYO</strong></p>
+            <audio id="audio6" src="CHASHKAKEFIRA DJ PXRPLE – KOKIYO.mp3" controls></audio>
+        </div>
+        <div class="song">
+            <p><strong>CHASHKAKEFIRA DJ PXRPLE – COLLAR!</strong></p>
+            <audio id="audio7" src="CHASHKAKEFIRA DJ PXRPLE – COLLAR!.mp3" controls></audio>
+        </div>
+        <div class="song">
+            <p><strong>CHASHKAKEFIRA VXNT1K – STARGAZER</strong></p>
+            <audio id="audio8" src="CHASHKAKEFIRA VXNT1K – STARGAZER.mp3" controls></audio>
+        </div>
+        <div class="song">
+            <p><strong>DJ DISAAT AKU MENCINTAIMU X SHEESH X CINTA MONYET JEDAG JEDUG REMIX [PLAT JMK] BY MASKHAT</strong></p>
+            <audio id="audio9" src="DJ DISAAT AKU MENCINTAIMU X SHEESH X CINTA MONYET JEDAG JEDUG REMIX [PLAT JMK] BY MASKHAT.mp3" controls></audio>
+    </div>
+    <div class="song">
+        <p><strong>DJ TETAP MENCINTAI X OSHIBE JEDAG JEDUG REMIX [PLAT JMK] BY MASKHAT !!R</strong></p>
+        <audio id="audio10" src="DJ TETAP MENCINTAI X OSHIBE JEDAG JEDUG REMIX [PLAT JMK] BY MASKHAT !!.mp3" controls></audio>
+    </div>
+    <div class="song">
+        <p><strong>DJ HEY LADIES JEDAG JEDUG REMIX [PLAT JMK] BY MASKHAT !!</strong></p>
+        <audio id="audio11" src="DJ HEY LADIES JEDAG JEDUG REMIX [PLAT JMK] BY MASKHAT !!.mp3" controls></audio>
+    </div>
+    <div class="song">
+        <p><strong>Tenxi Naykilla & Jemsii - Garam & Madu (Sakit Dadaku) (Official Music Video)</strong></p>
+        <audio id="audio8" src="Tenxi Naykilla & Jemsii - Garam & Madu (Sakit Dadaku) (Official Music Video).mp3" controls></audio>
+
+    </div>
+    <div class="song">
+        <p><strong>Ava Max - Choose Your Fighter (From Barbie The Album) [Official Audio]</strong></p>
+        <audio id="audio8" src="Ava Max - Choose Your Fighter (From Barbie The Album) [Official Audio].mp3" controls></audio>
+
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const audios = document.querySelectorAll("audio");
+            audios.forEach((audio, index) => {
+                audio.addEventListener("play", function () {
+                    audios.forEach(otherAudio => {
+                        if (otherAudio !== audio) {
+                            otherAudio.pause();
+                            otherAudio.currentTime = 0;
+                        }
+                    });
+                });
+                audio.addEventListener("ended", function () {
+                    if (index < audios.length - 1) {
+                        audios[index + 1].play();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
